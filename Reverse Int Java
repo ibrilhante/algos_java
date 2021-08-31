@@ -1,0 +1,20 @@
+class Solution {
+    public int reverse(int x) {
+        String s = String.valueOf(x);
+        int flag = 1;
+        
+        if (x < 0) {
+            flag = -1;
+            s = String.valueOf(x*-1);
+        }
+        
+        try {
+            StringBuffer sb = new StringBuffer(s);
+            sb.reverse();
+            int result = Integer.parseInt(String.valueOf(sb));
+            return result*flag;
+        } catch(Exception e) {
+            return 0;
+        }
+    }
+}
