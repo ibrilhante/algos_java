@@ -1,0 +1,50 @@
+//Solution 1
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        try {
+            String forward = String.valueOf(x);
+            StringBuffer sb = new StringBuffer(forward);
+            String backward = String.valueOf(sb.reverse());
+            if (forward.equals(backward)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch(Exception e) {
+            return false;
+        }
+    }
+}
+
+//Solution 2
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        
+        int number = x;
+        
+        try {
+            int reverse = 0;
+            
+            while (x != 0) {
+                int temp = x % 10;
+                x = x / 10;
+                reverse = reverse * 10 + temp;
+            }
+            
+            if (reverse == number) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        } catch(Exception e) {
+            return false;
+        }
+    }
+}
