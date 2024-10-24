@@ -1,0 +1,49 @@
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+// Array/List = 0(n^2); bad for large arrays
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int number : nums) {
+            if (list.contains(number)) {
+                return true;
+            } else {
+                list.add(number);
+            }
+        }
+        return false;
+    }
+}
+
+// Set = 0(nlogn); most efficient for checking for dupes
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int number : nums) {
+            if (set.contains(number)) {
+                return true;
+            } else {
+                set.add(number);
+            }
+        }
+        return false;
+    }
+}
+
+// Map = 0(nlogn); less efficient than set for checking for dupes but can be used to check for frequencies
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int number : nums) {
+            if (map.containsKey(number)) {
+                return true;
+            } else {
+                map.put(number, 1);
+            }
+        }
+        return false;
+    }
+}
